@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'pages/auth.php'; ?>
 
 <head>
     <meta charset="utf-8">
@@ -74,7 +73,9 @@
     </div>
     <!-- Navbar End -->
 
+    
     <style>
+
     .page-header {
         padding-top: 12rem;
         padding-bottom: 6rem;
@@ -82,89 +83,81 @@
         background-size: cover;
     }
 
-    .slideInDown,
-    .breadcrumb {
+    .slideInDown, .breadcrumb{
         color: white;
     }
     </style>
 
+
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Profile</h1>
+            <h1 class="display-3 mb-3 animated slideInDown">Products</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-body" href="#">Profile</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Change Password</li>
+                    <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page">Products</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
-    <!-- Profile Start -->
-    <div class="container-fluid bg-white bg-icon mt-5 py-6">
+<!-- Product Start -->
+<div class="container-xxl py-5">
         <div class="container">
-            <?php 
-$getall = getAllcustomerById($_SESSION['customer']);
-$row=mysqli_fetch_assoc($getall);
-$customer_id = $row['customer_id']; ?>
-
-            <!-- Contact Start -->
-            <div class="container-fluid bg-white">
-                <div class="container">
-                    <div class="row">
-                        <h1>Change Password</h1>
-                        <div class="col-lg-6 mb-5 my-lg-12 py-5 pl-lg-5">
-                            <form method="POST" class="row g-3 needs-validation" novalidate
-                                enctype="multipart/form-data">
-                                <div class="col-md-12 mt-2">
-                                    <label for="current_password" class="form-label">Current Password</label>
-                                    <input type="password" class="form-control" name="current_password"
-                                        id="current_password" placeholder="Current Password Name" required>
-                                </div>
-
-                                <div class="col-md-12 mt-2">
-                                    <label for="new_password" class="form-label">New Password</label>
-                                    <input type="password" class="form-control" name="new_password" id="new_password"
-                                        placeholder="New Password" required>
-                                </div>
-
-                                <div class="col-md-12 mt-2">
-                                    <label for="confirm_new_password" class="form-label">Confirm New
-                                        Password</label>
-                                    <input type="password" class="form-control" name="confirm_new_password"
-                                        id="confirm_new_password" placeholder="Confirm New Password" required>
-                                </div>
-
-                                <div class="col-md-12 mt-2">
-                                    <input type="hidden" class="form-control" name="customer_id"
-                                        value="<?php echo $_SESSION['customer']; ?>" id="customer_id">
-                                </div>
-                                <div class="col-md-12 mt-2">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                        <button type="button" onclick="changePasswordCustomer(this.form)"
-                                        class="btn btn-primary">Change Password</button>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a href="profile.php" class="btn btn-secondary" data-bs-dismiss="modal">Back
-                                                to
-                                                Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
+        <div class="row g-0 gx-5 align-items-end">
+                <div class="col-lg-6">
+                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                        <h1 class="display-5 mb-3">Our Products</h1>
                     </div>
                 </div>
             </div>
 
+            <div class="tab-content">
+
+                    <div class="row g-4">
+                    <?php
+                    if(isset($_REQUEST['cat_id']) && $_REQUEST['cat_id'] != ""){
+                        $getallCp2 = getAllProductItemsByCategory($_REQUEST['cat_id']);
+                    }else{
+                        $getallCp2 = getAllItems();
+                    }
+                    $count = 0;
+                    while ($row3 = mysqli_fetch_assoc($getallCp2)) {
+                        $pid = $row3['pid'];
+                        $img = $row3['product_image'];
+                        $img_src = "admin/server/uploads/products/" . $img;
+                        if($count < 6){ ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid" style="height: 200px; width: 100%;"  src="<?php echo $img_src; ?>" alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <a class="d-block h5 mb-2" href=""> <?php echo $row3['product_name']; ?></a>
+                                    <span class="text-primary me-1">Rs. <?php echo $row3['product_price']; ?></span>
+                                    <!-- <span class="text-body text-decoration-line-through">$29.00</span> -->
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <button onclick="addtoCartProduct(<?php echo $pid; ?>, <?php echo $row3['product_price']; ?>)" class="text-body btn btn-border-0" type="button"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</button>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } $count++; } ?>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-    <!-- Profile End -->
+    <!-- Product End -->
 
 
     <?php include 'pages/footersc.php'; ?>

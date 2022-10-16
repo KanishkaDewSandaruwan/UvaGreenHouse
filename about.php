@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'pages/auth.php'; ?>
 
 <head>
     <meta charset="utf-8">
@@ -75,6 +74,7 @@
     <!-- Navbar End -->
 
     <style>
+
     .page-header {
         padding-top: 12rem;
         padding-bottom: 6rem;
@@ -82,8 +82,7 @@
         background-size: cover;
     }
 
-    .slideInDown,
-    .breadcrumb {
+    .slideInDown, .breadcrumb{
         color: white;
     }
     </style>
@@ -91,80 +90,50 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Profile</h1>
+            <h1 class="display-3 mb-3 animated slideInDown">About Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-body" href="#">Profile</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Change Password</li>
+                    <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page">About Us</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
-    <!-- Profile Start -->
-    <div class="container-fluid bg-white bg-icon mt-5 py-6">
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <?php 
-$getall = getAllcustomerById($_SESSION['customer']);
-$row=mysqli_fetch_assoc($getall);
-$customer_id = $row['customer_id']; ?>
-
-            <!-- Contact Start -->
-            <div class="container-fluid bg-white">
-                <div class="container">
-                    <div class="row">
-                        <h1>Change Password</h1>
-                        <div class="col-lg-6 mb-5 my-lg-12 py-5 pl-lg-5">
-                            <form method="POST" class="row g-3 needs-validation" novalidate
-                                enctype="multipart/form-data">
-                                <div class="col-md-12 mt-2">
-                                    <label for="current_password" class="form-label">Current Password</label>
-                                    <input type="password" class="form-control" name="current_password"
-                                        id="current_password" placeholder="Current Password Name" required>
-                                </div>
-
-                                <div class="col-md-12 mt-2">
-                                    <label for="new_password" class="form-label">New Password</label>
-                                    <input type="password" class="form-control" name="new_password" id="new_password"
-                                        placeholder="New Password" required>
-                                </div>
-
-                                <div class="col-md-12 mt-2">
-                                    <label for="confirm_new_password" class="form-label">Confirm New
-                                        Password</label>
-                                    <input type="password" class="form-control" name="confirm_new_password"
-                                        id="confirm_new_password" placeholder="Confirm New Password" required>
-                                </div>
-
-                                <div class="col-md-12 mt-2">
-                                    <input type="hidden" class="form-control" name="customer_id"
-                                        value="<?php echo $_SESSION['customer']; ?>" id="customer_id">
-                                </div>
-                                <div class="col-md-12 mt-2">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                        <button type="button" onclick="changePasswordCustomer(this.form)"
-                                        class="btn btn-primary">Change Password</button>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a href="profile.php" class="btn btn-secondary" data-bs-dismiss="modal">Back
-                                                to
-                                                Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                        <img class="img-fluid w-100" src="<?php echo $about_src; ?>">
                     </div>
                 </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="display-5 mb-4"><?php echo $res['about_title']; ?></h1>
+                    <p class="mb-4"><?php echo $res['about_desc']; ?></p>
+                </div>
             </div>
-
         </div>
     </div>
-    <!-- Profile End -->
+    <!-- About End -->
+
+
+    <!-- Firm Visit Start -->
+    <div class="container-fluid bg-primary bg-icon mt-5 py-6">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-7 wow fadeIn" data-wow-delay="0.1s">
+                    <h1 class="display-5 text-white mb-3">About Our Farm</h1>
+                    <p class="text-white mb-0"><?php echo $res['header_desc']; ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Firm Visit End -->
 
 
     <?php include 'pages/footersc.php'; ?>

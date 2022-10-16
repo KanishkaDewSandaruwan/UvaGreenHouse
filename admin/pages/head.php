@@ -1,20 +1,4 @@
-<?php 
-include 'admin/server/api.php';  
-
-$setting = getAllSettings();
-$res = mysqli_fetch_assoc($setting);
-
-$header = $res['header_image'];
-$header_src = "admin/server/uploads/settings/".$header;
-
-$subheader = $res['sub_image'];
-$subheader_src = "admin/server/uploads/settings/".$subheader;
-
-$about = $res['about_image'];
-$about_src = "admin/server/uploads/settings/".$about;
-
-
-?>
+<?php include 'server/api.php'; ?>
 <head>
     <title>Uva Green House</title>
     <!-- Meta -->
@@ -27,9 +11,16 @@ $about_src = "admin/server/uploads/settings/".$about;
     <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+
+    
     <!-- toast -->
-    <script src="admin/assets/plugin/iziToast-master/dist/js/iziToast.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="admin/assets/plugin/iziToast-master/dist/css/iziToast.min.css">
+    <script src="assets/plugin/iziToast-master/dist/js/iziToast.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="assets/plugin/iziToast-master/dist/css/iziToast.min.css">
     
     <!-- Simple table -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />

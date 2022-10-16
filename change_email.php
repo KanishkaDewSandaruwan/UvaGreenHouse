@@ -115,38 +115,33 @@ $customer_id = $row['customer_id']; ?>
             <div class="container-fluid bg-white">
                 <div class="container">
                     <div class="row">
-                        <h1>Change Password</h1>
+                        <h1>Change Email Address</h1>
                         <div class="col-lg-6 mb-5 my-lg-12 py-5 pl-lg-5">
                             <form method="POST" class="row g-3 needs-validation" novalidate
                                 enctype="multipart/form-data">
                                 <div class="col-md-12 mt-2">
-                                    <label for="current_password" class="form-label">Current Password</label>
-                                    <input type="password" class="form-control" name="current_password"
-                                        id="current_password" placeholder="Current Password Name" required>
+                                    <label for="current_email" class="form-label">Current Email Address</label>
+                                    <input type="email" class="form-control" name="current_email" id="current_email"
+                                        placeholder="Current Email Address" required>
                                 </div>
 
                                 <div class="col-md-12 mt-2">
-                                    <label for="new_password" class="form-label">New Password</label>
-                                    <input type="password" class="form-control" name="new_password" id="new_password"
-                                        placeholder="New Password" required>
-                                </div>
-
-                                <div class="col-md-12 mt-2">
-                                    <label for="confirm_new_password" class="form-label">Confirm New
-                                        Password</label>
-                                    <input type="password" class="form-control" name="confirm_new_password"
-                                        id="confirm_new_password" placeholder="Confirm New Password" required>
+                                    <label for="new_email" class="form-label">New Email Address</label>
+                                    <input type="email" class="form-control" name="new_email" id="new_email"
+                                        placeholder="New Email Address" required>
                                 </div>
 
                                 <div class="col-md-12 mt-2">
                                     <input type="hidden" class="form-control" name="customer_id"
                                         value="<?php echo $_SESSION['customer']; ?>" id="customer_id">
+
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <div class="row">
-                                        <div class="col-lg-4">
-                                        <button type="button" onclick="changePasswordCustomer(this.form)"
-                                        class="btn btn-primary">Change Password</button>
+                                        <div class="col-lg-3">
+                                            <button type="button" onclick="changeEmail(this.form)"
+                                                class="btn btn-primary">Save
+                                                changes</button>
                                         </div>
                                         <div class="col-lg-6">
                                             <a href="profile.php" class="btn btn-secondary" data-bs-dismiss="modal">Back

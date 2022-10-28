@@ -8,14 +8,18 @@
     <!-- Navbar Start -->
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
-            <div class="col-lg-6 px-5 text-start text-white">
-                <small><i class="fa fa-map-marker-alt me-2"></i><?php echo $res['company_address']; ?></small>
-                <small class="ms-4"><i class="fa fa-envelope me-2"></i><?php echo $res['company_phone']; ?></small>
+            <div class="col-lg-6 px-5 text-start text-dark">
+                <small>Description</small>
+
             </div>
-            <div class="col-lg-6 px-5 text-end text-white">
-                <small>Follow us:</small>
-                <a class="text-body text-white ms-3" href="<?php echo $res['link_facebook']; ?>"><i class="fab fa-facebook-f"></i></a>
-                <a class="text-body text-white ms-3" href="<?php echo $res['link_twiiter']; ?>"><i class="fab fa-twitter"></i></a>
-                <a class="text-body text-white ms-3" href="<?php echo $res['link_instragram']; ?>"><i class="fab fa-instagram"></i></a>
+            <div class="col-lg-6 px-5 text-end text-dark">
+                <?php if(isset($_SESSION['customer'])) :?>
+                <a class="text-dark ms-3" href="profile.php">Profile</a>
+                <a class="text-dark ms-3" href="orders.php">Orders</a>
+                <a class="text-dark ms-3" href="admin/logout.php">Logout</a>
+                <?php else :?>
+                <a class="text-dark ms-3" href="admin/login.php">Login</a>
+                <a class="text-dark ms-3" href="admin/register.php">Register</a>
+                <?php endif;?>
             </div>
         </div>

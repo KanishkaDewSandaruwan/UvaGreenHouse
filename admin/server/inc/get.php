@@ -28,13 +28,21 @@ function getAllItems()
     return mysqli_query($con, $viewcat);
 }
 
+function getAllItemsAvailable()
+{
+    include 'connection.php';
+
+    $viewcat = "SELECT * FROM products WHERE product_active = 1 AND is_deleted = 0 ORDER BY date_updated DESC";
+    return mysqli_query($con, $viewcat);
+}
+
 function getAllItemsLatest()
 {
     include 'connection.php';
 
     $NewDate=Date('y:m:d', strtotime('-7 days'));
 
-    $viewcat = "SELECT * FROM products WHERE is_deleted = 0 AND NOT(date_updated < '$NewDate'  OR date_updated >  now())  ORDER BY date_updated DESC";
+    $viewcat = "SELECT * FROM products WHERE product_active = 1 AND is_deleted = 0 AND NOT(date_updated < '$NewDate'  OR date_updated >  now())  ORDER BY date_updated DESC";
     return mysqli_query($con, $viewcat);
 
 }
@@ -48,6 +56,14 @@ function checkProductByName($product_name)
 }
 
 function getAllItemsByID($pid)
+{
+	include 'connection.php';
+
+	$viewcat = "SELECT * FROM products WHERE is_deleted = 0 AND pid = '$pid'";
+	return mysqli_query($con, $viewcat);
+}
+
+function getAllProductsByID($pid)
 {
 	include 'connection.php';
 

@@ -36,41 +36,27 @@
 <?php include 'pages/header.php'; ?>
 
 <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn " data-wow-delay="0.1s">
-            <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
-                <h1 class="fw-bold text-primary m-0">Uva <span class="text-success">Green </span>House</h1>
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.php" class="nav-item nav-link text-success active">Home</a>
-                    <a href="about.php" class="nav-item nav-link text-success">About Us</a>
-                    <a href="product.php" class="nav-item nav-link text-success">Products</a>
-                    <a href="contact.php" class="nav-item nav-link text-success">Contact Us</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link text-success dropdown-toggle" data-bs-toggle="dropdown">Account</a>
-                        <div class="dropdown-menu m-0">
-                        <?php if(isset($_SESSION['customer'])) :?>
-                            <a href="orders.php" class="dropdown-item">Orders</a>
-                            <a href="admin/logout.php" class="dropdown-item">logout</a>
-                            <?php else :?>
-                            <a href="admin/login.php" class="dropdown-item">Login</a>
-                            <a href="admin/register.php" class="dropdown-item">Register</a>
-                            <?php endif;?>
-                        </div>
-                    </div>
-                </div>
-                 <div class="d-none d-lg-flex ms-2">
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="profile.php">
-                        <small class="fa fa-user text-body"></small>
-                    </a>
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="cart.php">
-                        <small class="fa fa-shopping-bag text-body"></small>
-                    </a>
-                </div>
+        <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="fw-bold text-primary m-0">Uva <span class="text-success">Green </span>House</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.php" class="nav-item nav-link  ">Home</a>
+                <a href="about.php" class="nav-item nav-link ">About Us</a>
+                <a href="product.php" class="nav-item nav-link ">Products</a>
+                <a href="service.php" class="nav-item nav-link  active">Service</a>
+                <a href="contact.php" class="nav-item nav-link ">Contact Us</a>
             </div>
-        </nav>
+            <div class="d-none d-lg-flex ms-2">
+                <a class="btn-sm-square bg-primary rounded-circle ms-3" href="cart.php">
+                    <small class="fa fa-shopping-bag text-white"></small>
+                </a>
+            </div>
+        </div>
+    </nav>
     </div>
     <!-- Navbar End -->
 
@@ -84,7 +70,7 @@
         background-size: cover;
     }
 
-    .slideInDown, .breadcrumb{
+    .text-dark slideInDown, .breadcrumb{
         color: white;
     }
     </style>
@@ -92,8 +78,8 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Checkout</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
+            <h1 class="display-3 mb-3 animated text-dark slideInDown">Checkout</h1>
+            <nav aria-label="breadcrumb animated text-dark slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
                     <li class="breadcrumb-item"><a class="text-body" href="#">Cart</a></li>

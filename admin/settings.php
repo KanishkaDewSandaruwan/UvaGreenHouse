@@ -85,6 +85,9 @@
 
                             $imgs = $res['sub_image'];
                             $imgs_src = "server/uploads/settings/".$imgs;
+
+                            $about_image = $res['about_image'];
+                            $about_image_src = "server/uploads/settings/".$about_image;
                     ?>
                                 <div class="row m-5 p-5 border border-white">
                                     <div class="col-md-12">
@@ -132,6 +135,17 @@
                                             id="about_desc" required
                                             rows="3"><?php echo $res['about_desc']; ?></textarea>
                                     </div>
+
+                                    <form class="mt-3" method="POST" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <input type="hidden" name="field" id="field" value="about_image">
+                                            <label for="formFile" class="form-label"> About Us Image file</label>
+                                            <input class="form-control" onchange="uploadSettingImage(this.form);"
+                                                name="file" type="file" id="formFile">
+                                        </div>
+
+                                        <img class="mt-2" width="50%" src='<?php echo $about_image_src; ?>'>
+                                    </form>
                                     <!-- <form class="mt-3" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <input type="hidden" name="field" id="field" value="header_image">
@@ -142,6 +156,55 @@
                         <img class="mt-2" width="200px" src='<?php echo $img_src; ?>'> -->
                                 </div>
 
+
+                                <div class="row m-5 p-5 border border-white">
+                                    <div class="col-md-12">
+                                        <h5 class="text-white">Service Settings</h5>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="validationCustom01" class="form-label">Service Description</label>
+                                        <input type="text" onchange='settingsUpdate(this, "service_description")'
+                                            value="<?php echo $res['service_description']; ?>" class="form-control"
+                                            id="service_description" placeholder="Service Description" required>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="validationCustom01" class="form-label">Service Title 01</label>
+                                        <input type="text" onchange='settingsUpdate(this, "service_1_title")'
+                                            value="<?php echo $res['service_1_title']; ?>" class="form-control"
+                                            id="service_1_title" placeholder="Service Title 01" required>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="validationCustom01" class="form-label">Service Description 01</label>
+                                        <input type="text" onchange='settingsUpdate(this, "service_1_desc")'
+                                            value="<?php echo $res['service_1_desc']; ?>" class="form-control"
+                                            id="service_1_desc" placeholder="Service Description 01" required>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="validationCustom01" class="form-label">Service Title 02</label>
+                                        <input type="text" onchange='settingsUpdate(this, "service_2_title")'
+                                            value="<?php echo $res['service_2_title']; ?>" class="form-control"
+                                            id="service_2_title" placeholder="Service Title 02" required>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="validationCustom01" class="form-label">Service Description 02</label>
+                                        <input type="text" onchange='settingsUpdate(this, "service_2_desc")'
+                                            value="<?php echo $res['service_2_desc']; ?>" class="form-control"
+                                            id="service_2_desc" placeholder="Service Description 02" required>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="validationCustom01" class="form-label">Service Title 03</label>
+                                        <input type="text" onchange='settingsUpdate(this, "service_3_title")'
+                                            value="<?php echo $res['service_3_title']; ?>" class="form-control"
+                                            id="service_3_title" placeholder="Service Title 03" required>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="validationCustom01" class="form-label">Service Description 03</label>
+                                        <input type="text" onchange='settingsUpdate(this, "service_3_desc")'
+                                            value="<?php echo $res['service_3_desc']; ?>" class="form-control"
+                                            id="service_3_desc" placeholder="Service Description 03" required>
+                                    </div>
+
+                                </div>
 
                                 <div class="row m-5 p-5 border border-white">
                                     <div class="col-md-12">

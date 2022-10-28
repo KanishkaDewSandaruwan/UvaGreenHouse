@@ -1458,7 +1458,7 @@
   animation-name: zoomOutUp;
 }
 
-@keyframes slideInDown {
+@keyframes text-dark slideInDown {
   from {
     transform: translate3d(0, -100%, 0);
     visibility: visible;
@@ -1469,8 +1469,8 @@
   }
 }
 
-.slideInDown {
-  animation-name: slideInDown;
+.text-dark slideInDown {
+  animation-name: text-dark slideInDown;
 }
 
 @keyframes slideInLeft {

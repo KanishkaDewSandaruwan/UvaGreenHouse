@@ -25,7 +25,7 @@ $about_src = "admin/server/uploads/settings/".$about;
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="admin/assets/images/logo5.png" type="image/x-icon">
 
     <!-- toast -->
     <script src="admin/assets/plugin/iziToast-master/dist/js/iziToast.min.js" type="text/javascript"></script>

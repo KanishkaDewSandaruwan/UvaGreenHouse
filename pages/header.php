@@ -9,7 +9,7 @@
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
             <div class="col-lg-6 px-5 text-start text-dark">
-                <small>Description</small>
+                <small>Uva Green House</small>
 
             </div>
             <div class="col-lg-6 px-5 text-end text-dark">

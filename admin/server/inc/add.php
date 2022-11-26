@@ -74,8 +74,16 @@ function createCustomer($data)
 	$gender = $data['gender'];
 	$password = $data['password'];
 
-	$sql = "INSERT INTO customer(name, email, phone, nic, address, gender, password, is_deleted) VALUES('$name', '$email', '$phone', '$nic', '$address', '$gender', '$password', 0 )";
-	return mysqli_query($con, $sql);
+	$count = checkCustomerByEmailAddress($email);
+
+	if ($count == 0) {
+		$sql = "INSERT INTO customer(name, email, phone, nic, address, gender, password, is_deleted) VALUES('$name', '$email', '$phone', '$nic', '$address', '$gender', '$password', 0 )";
+		return mysqli_query($con, $sql);
+	}
+	else {
+		echo json_encode($count);
+	}
+
 	
 }
 

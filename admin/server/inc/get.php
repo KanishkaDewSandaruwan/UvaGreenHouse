@@ -46,6 +46,18 @@ function getAllItemsLatest()
     return mysqli_query($con, $viewcat);
 
 }
+
+
+function checkCustomerByEmailAddress($email)
+{
+    include 'connection.php';
+
+    $q1 = "SELECT * FROM customer WHERE email='$email' AND is_deleted = 0";
+    $res =  mysqli_query($con, $q1);
+    return mysqli_num_rows($res);
+}
+
+
 function checkProductByName($product_name)
 {
 	include 'connection.php';

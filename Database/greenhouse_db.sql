@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2022 at 09:38 PM
+-- Generation Time: Nov 26, 2022 at 05:15 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -46,7 +46,10 @@ INSERT INTO `cart` (`cart_id`, `pid`, `customer_id`, `price`, `qty`, `date_updat
 (88, 17, 4, 450, 1, '2022-10-15 17:26:09'),
 (89, 23, 4, 65, 1, '2022-10-15 17:26:20'),
 (90, 24, 4, 456, 1, '2022-10-15 17:26:25'),
-(91, 23, 4, 65, 1, '2022-10-15 21:54:44');
+(91, 23, 4, 65, 1, '2022-10-15 21:54:44'),
+(92, 24, 3, 456, 2, '2022-10-28 14:10:51'),
+(93, 3, 3, 550, 1, '2022-10-28 14:11:42'),
+(94, 3, 3, 550, 1, '2022-10-28 14:21:58');
 
 -- --------------------------------------------------------
 
@@ -114,8 +117,7 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`contact_id`, `name`, `email`, `subject`, `message`, `date_updated`) VALUES
 (4, 'Kanishka Dew Sandaruwan', 'kanishkadewsandaruwan@gmail.com', '0713664071', 'sas', '2022-09-12 22:35:23'),
-(5, 'Kanishka Dew Sandaruwan', 'kanishkadewsandaruwan@gmail.com', '0713664071', 'dsds', '2022-09-15 10:28:09'),
-(16, 'Muthuwana Acharige Kanishka Dew Sandaruwan', 'kanishkadewsandaruwan@gmail.com', 's', 's', '2022-10-15 16:11:16');
+(5, 'Kanishka Dew Sandaruwan', 'kanishkadewsandaruwan@gmail.com', '0713664071', 'dsds', '2022-09-15 10:28:09');
 
 -- --------------------------------------------------------
 
@@ -196,7 +198,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`pid`, `product_name`, `product_description`, `product_highlight`, `product_price`, `product_qty`, `product_active`, `date_updated`, `is_deleted`, `product_image`, `cat_id`) VALUES
 (1, 'Arract', 'we are selling ml you can buy ml wise', '35.8 alcohol', 250, 1700, 1, '2022-10-03 00:47:49', 1, 'images.jfif', 20),
-(3, 'Red Rose', 'World best bag', 'Best Bag', 550, 15, 1, '2022-10-15 23:20:15', 0, 'pexels-pixabay-56866.jpg', 7),
+(3, 'Red Rose', 'Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached', 'Best Roses in world in Sri lankasn style', 550, 5, 1, '2022-10-15 23:20:15', 0, 'pexels-pixabay-56866.jpg', 7),
 (9, 'Tops', 'ss', 's', 4500, 5, 0, '2022-09-11 12:09:22', 1, 'images.jfif', 1),
 (10, 'Office Slipers', 'ss', 'ss', 2500, 50, 0, '2022-09-11 12:11:27', 1, 'download.jfif', 3),
 (11, 'Office Casual', 'sss', 'best slipers', 4500, 5, 0, '2022-09-11 12:07:26', 1, 'download.jfif', 3),
@@ -237,9 +239,9 @@ CREATE TABLE `product_orders` (
 --
 
 INSERT INTO `product_orders` (`order_id`, `customer_id`, `total`, `shipping_address`, `billing_address`, `payment`, `date_updated`, `is_deleted`, `order_status`, `tracking`) VALUES
-(31, 3, 1000, '', '', 1, '2022-10-02 20:16:38', 0, 5, ''),
+(31, 3, 1000, '', '', 1, '2022-10-02 20:16:38', 0, 1, ''),
 (33, 3, 450, '', '', 1, '2022-09-14 20:21:12', 0, 2, '17:00'),
-(34, 3, 1850, 'Banwalgodalla, Kosmulla', 'Neluwa', 1, '2022-10-15 23:20:15', 0, 2, 'Pending');
+(34, 3, 1850, 'Banwalgodalla, Kosmulla', 'Neluwa', 1, '2022-10-15 23:20:15', 0, 1, 'AGUS5656');
 
 -- --------------------------------------------------------
 
@@ -266,15 +268,22 @@ CREATE TABLE `settings` (
   `shipping_fee` varchar(255) CHARACTER SET cp1250 NOT NULL,
   `sub_title` varchar(255) NOT NULL,
   `sub_desc` varchar(9999) NOT NULL,
-  `terms_and_condition` varchar(9999) NOT NULL
+  `terms_and_condition` varchar(9999) NOT NULL,
+  `service_1_title` varchar(1000) NOT NULL,
+  `service_1_desc` varchar(1000) NOT NULL,
+  `service_2_title` varchar(1000) NOT NULL,
+  `service_2_desc` varchar(1000) NOT NULL,
+  `service_3_title` varchar(1000) NOT NULL,
+  `service_3_desc` varchar(1000) NOT NULL,
+  `service_description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`header_image`, `header_title`, `header_desc`, `about_title`, `about_desc`, `company_phone`, `company_email`, `company_address`, `sub_image`, `about_image`, `link_facebook`, `link_twiiter`, `link_instragram`, `header_rotate_image`, `about_experience`, `shipping_fee`, `sub_title`, `sub_desc`, `terms_and_condition`) VALUES
-('pexels-pixabay-56866.jpg', 'Welcome to Uva Green House', 'With this shop hompeage template', 'About Us', 'Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached', '0713664076', 'asn@gmail.com', 'Banwalgodalla, Kosmulla', 'pexels-pixabay-39517.jpg', 'na-beers-counter-ebe988ba9d8751cbcbb6cd49476ba405673d252c-s1100-c50.jpg', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.facebook.com/', 'hero.png', 20, '200', 'Anyway', '<h1>What Is a Terms and Conditions Agreement?</h1></br>\n<p>A terms and conditions agreement outlines the website administratorâ€™s rules regarding user behavior and provides information about the actions the website administrator can and will perform.</p>\n\nEssentially, your terms and conditions text is a contract between your website and its users. In the event of a legal dispute, arbitrators will look at it to determine whether each party acted within their rights.\n\nCreating the best terms and conditions page possible will protect your business from the following:\n\nAbusive users: Terms and Conditions agreements allow you to establish what constitutes appropriate activity on your site or app, empowering you to remove abusive users and content that violates your guidelines.\nIntellectual property theft: Asserting your claim to the creative assets of your site in your terms and conditions will prevent ownership disputes and copyright infringement.\nPotential litigation: If a user lodges a legal complaint against your business, showing that they were presented with clear terms and conditions before they used your site will help you immensely in court.\nIn short, terms and conditions give you control over your site and legal enforcement if users try to take advantage of your operations.', 'sasasa');
+INSERT INTO `settings` (`header_image`, `header_title`, `header_desc`, `about_title`, `about_desc`, `company_phone`, `company_email`, `company_address`, `sub_image`, `about_image`, `link_facebook`, `link_twiiter`, `link_instragram`, `header_rotate_image`, `about_experience`, `shipping_fee`, `sub_title`, `sub_desc`, `terms_and_condition`, `service_1_title`, `service_1_desc`, `service_2_title`, `service_2_desc`, `service_3_title`, `service_3_desc`, `service_description`) VALUES
+('carousel-2.jpg', 'Welcome to Uva Green House', 'With this shop hompeage template asasoahs9uahjs9u ojsoiajsaoij noajsa', 'About Us', 'Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached', '0713664076', 'asn@gmail.com', 'Banwalgodalla, Kosmulla', 'carousel-1.jpg', 'about.jpg', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.facebook.com/', 'hero.png', 20, '500', 'Anyway', '<h1>What Is a Terms and Conditions Agreement?</h1></br>\n<p>A terms and conditions agreement outlines the website administratorâ€™s rules regarding user behavior and provides information about the actions the website administrator can and will perform.</p>\n\nEssentially, your terms and conditions text is a contract between your website and its users. In the event of a legal dispute, arbitrators will look at it to determine whether each party acted within their rights.\n\nCreating the best terms and conditions page possible will protect your business from the following:\n\nAbusive users: Terms and Conditions agreements allow you to establish what constitutes appropriate activity on your site or app, empowering you to remove abusive users and content that violates your guidelines.\nIntellectual property theft: Asserting your claim to the creative assets of your site in your terms and conditions will prevent ownership disputes and copyright infringement.\nPotential litigation: If a user lodges a legal complaint against your business, showing that they were presented with clear terms and conditions before they used your site will help you immensely in court.\nIn short, terms and conditions give you control over your site and legal enforcement if users try to take advantage of your operations.', 'sasasa', 'Natural ', 'Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.', 'Organic Products', 'Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.', 'Biologically Safe', 'Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.', 'Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet');
 
 --
 -- Indexes for dumped tables
@@ -330,7 +339,7 @@ ALTER TABLE `product_orders`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `category`

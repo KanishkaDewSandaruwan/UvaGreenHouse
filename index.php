@@ -37,7 +37,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn " data-wow-delay="0.1s">
         <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
-            <h1 class="fw-bold text-primary m-0">Uva <span class="text-success">Green </span>House</h1>
+        <img width="100%" height="50px" src="admin/assets/images/logo5.png" alt="">
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -47,6 +47,7 @@
                 <a href="index.php" class="nav-item nav-link  active">Home</a>
                 <a href="about.php" class="nav-item nav-link ">About Us</a>
                 <a href="product.php" class="nav-item nav-link ">Products</a>
+                <a href="category.php" class="nav-item nav-link ">Category</a>
                 <a href="service.php" class="nav-item nav-link ">Service</a>
                 <a href="contact.php" class="nav-item nav-link ">Contact Us</a>
             </div>
@@ -75,7 +76,7 @@
                                         <?php echo $res['header_desc']; ?></h1>
                                     <a href="products.php"
                                         class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
-                                    <a href="service.php" class="btn btn-dark rounded-pill py-sm-3 px-sm-5">Service</a>
+                                    <a href="category.php" class="btn btn-dark rounded-pill py-sm-3 px-sm-5">Category</a>
                                 </div>
                             </div>
                         </div>

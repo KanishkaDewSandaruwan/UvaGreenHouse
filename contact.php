@@ -46,6 +46,7 @@
                 <a href="index.php" class="nav-item nav-link ">Home</a>
                 <a href="about.php" class="nav-item nav-link">About Us</a>
                 <a href="product.php" class="nav-item nav-link">Products</a>
+                <a href="category.php" class="nav-item nav-link ">Category</a>
                 <a href="service.php" class="nav-item nav-link ">Service</a>
                 <a href="contact.php" class="nav-item nav-link active">Contact Us</a>
             </div>

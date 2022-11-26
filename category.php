@@ -14,7 +14,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -32,9 +33,9 @@
 </head>
 
 <body>
-<?php include 'pages/header.php'; ?>
+    <?php include 'pages/header.php'; ?>
 
-<nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn " data-wow-delay="0.1s">
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn " data-wow-delay="0.1s">
         <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
             <h1 class="fw-bold text-primary m-0">Uva <span class="text-success">Green </span>House</h1>
         </a>
@@ -43,12 +44,12 @@
         </button>
         <div class="collapse navbar-collapse " id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.php" class="nav-item nav-link ">Home</a>
-                <a href="about.php" class="nav-item nav-link active">About Us</a>
-                <a href="product.php" class="nav-item nav-link">Products</a>
-                <a href="category.php" class="nav-item nav-link ">Category</a>
+                <a href="index.php" class="nav-item nav-link  ">Home</a>
+                <a href="about.php" class="nav-item nav-link ">About Us</a>
+                <a href="product.php" class="nav-item nav-link  ">Products</a>
+                <a href="service.php" class="nav-item nav-link active">Category</a>
                 <a href="service.php" class="nav-item nav-link ">Service</a>
-                <a href="contact.php" class="nav-item nav-link">Contact Us</a>
+                <a href="contact.php" class="nav-item nav-link ">Contact Us</a>
             </div>
             <div class="d-none d-lg-flex ms-2">
                 <a class="btn-sm-square bg-primary rounded-circle ms-3" href="cart.php">
@@ -60,8 +61,8 @@
     </div>
     <!-- Navbar End -->
 
-    <style>
 
+    <style>
     .page-header {
         padding-top: 12rem;
         padding-bottom: 6rem;
@@ -69,58 +70,77 @@
         background-size: cover;
     }
 
-    .text-dark slideInDown, .breadcrumb{
+    .text-dark slideInDown,
+    .breadcrumb {
         color: white;
     }
     </style>
 
+
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated text-dark slideInDown">About Us</h1>
+            <h1 class="display-3 mb-3 animated text-dark slideInDown">Category</h1>
             <nav aria-label="breadcrumb animated text-dark slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
                     <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">About Us</li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page">Category</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
-
-    <!-- About Start -->
+    <!-- Product Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                        <img class="img-fluid w-100" src="<?php echo $about_src; ?>">
+            <div class="row g-0 gx-5 align-items-end">
+                <div class="col-lg-6">
+                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s"
+                        style="max-width: 500px;">
+                        <h1 class="display-5 mb-3">Our Category</h1>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-5 mb-4"><?php echo $res['about_title']; ?></h1>
-                    <p class="mb-4"><?php echo $res['about_desc']; ?></p>
-                </div>
             </div>
-        </div>
-    </div>
-    <!-- About End -->
+
+            <div class="tab-content">
+
+                <div class="row g-4">
+                    <?php 
+                        $getall = getAllCategories();
+                        $top_active = 1;
+                        while($row=mysqli_fetch_assoc($getall)){ 
+                            $cat_id = $row['cat_id'];
+                            $img = $row['cat_image'];
+                            $img_src = "admin/server/uploads/category/".$img;
+
+                        $getallCp2 = getAllProductItemsByCategory($cat_id);
+                        if ($row2 = mysqli_fetch_assoc($getallCp2)) {
+                            ?>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="product-item">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid" style="height: 200px; width: 100%;" src="<?php echo $img_src; ?>"
+                                    alt="">
+                            </div>
+
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2" href="product.php?cat_id=<?php echo $row['cat_id']; ?>">
+                                    <?php echo $row['cat_name']; ?></a>
+                            </div>
 
 
-    <!-- Firm Visit Start -->
-    <div class="container-fluid bg-primary bg-icon mt-5 py-6">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-md-7 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="display-5 text-white mb-3">About Our Farm</h1>
-                    <p class="text-white mb-0"><?php echo $res['header_desc']; ?></p>
+                        </div>
+                    </div>
+                    <?php  $top_active ++; } } ?>
                 </div>
             </div>
+
         </div>
     </div>
-    <!-- Firm Visit End -->
+    </div>
+    <!-- Product End -->
 
 
     <?php include 'pages/footersc.php'; ?>
